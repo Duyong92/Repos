@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadExcel", "ReadExcel\ReadExcel.vcxproj", "{C3980D4E-FB6D-496F-BF59-B88234D3CDDE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "readFileIntoString", "readFileIntoString\readFileIntoString.vcxproj", "{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadCSV_Test", "ReadCSV_Test\ReadCSV_Test.vcxproj", "{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +25,22 @@ Global
 		{C3980D4E-FB6D-496F-BF59-B88234D3CDDE}.Release|x64.Build.0 = Release|x64
 		{C3980D4E-FB6D-496F-BF59-B88234D3CDDE}.Release|x86.ActiveCfg = Release|Win32
 		{C3980D4E-FB6D-496F-BF59-B88234D3CDDE}.Release|x86.Build.0 = Release|Win32
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Debug|x64.ActiveCfg = Debug|x64
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Debug|x64.Build.0 = Debug|x64
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Debug|x86.ActiveCfg = Debug|Win32
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Debug|x86.Build.0 = Debug|Win32
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Release|x64.ActiveCfg = Release|x64
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Release|x64.Build.0 = Release|x64
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Release|x86.ActiveCfg = Release|Win32
+		{FB5AB457-5D5D-4D64-A4A8-B8ED343147BA}.Release|x86.Build.0 = Release|Win32
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Debug|x64.ActiveCfg = Debug|x64
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Debug|x64.Build.0 = Debug|x64
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Debug|x86.ActiveCfg = Debug|Win32
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Debug|x86.Build.0 = Debug|Win32
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Release|x64.ActiveCfg = Release|x64
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Release|x64.Build.0 = Release|x64
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Release|x86.ActiveCfg = Release|Win32
+		{B86EEF72-B47A-4B7B-A45B-AEB5A94E2C89}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
