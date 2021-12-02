@@ -143,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="File_Position_Indicator.h" />
+    <ClInclude Include="fopen_a.h" />
+    <ClInclude Include="Fputs_Fgets.h" />
+    <ClInclude Include="Fputc_Fgetc.h" />
+    <ClInclude Include="fscanf.h" />
+    <ClInclude Include="fscanf_example.h" />
+    <ClInclude Include="Book.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
