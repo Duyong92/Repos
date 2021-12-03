@@ -23,5 +23,8 @@
     <ClInclude Include="ReadExcel_Test.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="ReadExcel_Test_2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
