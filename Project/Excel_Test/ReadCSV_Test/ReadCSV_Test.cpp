@@ -13,6 +13,7 @@ int main() {
 	while (!fs.eof()) {
 		++count;
 		getline(fs, str_buf, ',');
+		cout << "sdf" << str_buf << endl;
 		
 	}
 	fs.close();
