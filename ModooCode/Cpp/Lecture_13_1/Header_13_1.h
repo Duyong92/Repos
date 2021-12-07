@@ -1,0 +1,9 @@
+#pragma once
+//#define GARBAGE_COLLECTOR
+//#define UNIQUE_PTR
+//#define UNIQUE_PTR_ADVANCED
+#define UNIQUE_PTR_VECTOR
+void Garbage_Collector();
+void Unique_Ptr(); 
+void Unique_Ptr_advanced(); 
+void Unique_Ptr_Vector();

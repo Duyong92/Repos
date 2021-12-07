@@ -1,4 +1,4 @@
-#pragma one
+#pragma once
 #include "Header_12_2.h"
 #ifdef UNIVERSAL_REFERENCE
 #include <iostream>
