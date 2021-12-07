@@ -1,0 +1,13 @@
+#pragma once
+//#define MOVE
+//#define MOVE_SEMANTICS
+//#define MYSTRING_MOVE_SEMANTICS
+//#define MOVE_QUIZ
+//#define WRAPPER
+#define UNIVERSAL_REFERENCE
+void Move();
+void Move_Semantics();
+void MyString_Move_Semantics();
+void Move_quiz();
+void Wrapper();
+void Universal_Reference();
