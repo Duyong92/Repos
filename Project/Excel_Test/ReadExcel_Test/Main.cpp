@@ -13,9 +13,6 @@ int main()
 	std::cout << "임의로 '../read_csv_test.csv' 경로에 있는 csv를 읽겠습니다." << std::endl;
 	Excel_CSV Excel;
 	std::vector<std::vector<char*>> csv = Excel.GetCSV();
-#ifdef _WIN32
-	SetConsoleOutputCP(65001);
-#endif
 	std::cout << "성공적으로 csv를 읽었습니다." << std::endl << std::endl;
 
 	// 시간대 계산을 위해 필요한 임시 변수들이다.

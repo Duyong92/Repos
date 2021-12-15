@@ -1,7 +1,4 @@
 #pragma once
-#ifdef _WIN32
-#include <Windows.h>
-#endif
 
 class Excel_CSV
 {
@@ -41,9 +38,6 @@ char* to_CharPoint(std::string _sBuffer)
 // fopen 의 인자로 char* 을 입력하게 매개변수를 받을 것이다.
 Excel_CSV::Excel_CSV()
 {
-#ifdef _WIN32
-	SetConsoleOutputCP(CP_UTF8);
-#endif
 	// fopen 의 인자로 char* 의 filename 을 입력 받게 할 것이다.
 	// 읽기 전용 테스트모드로 파일을 연다.
 	FILE* fp = fopen("../read_csv_test.csv", "rt");
