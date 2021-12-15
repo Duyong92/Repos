@@ -90,19 +90,76 @@ C6262 : 함수에서 '20032' 바이트의 스택을 사용하는데 이 크기가  /analyze:stacjsuz
 buffer[10000] -> buffer[5000] 
 */
 
+void CExcel::SetCSV(std::string _path) {
+    char szASCII;   // char 타입으로 ASCII 코드를 받는 변수이다.
+    std::string sBuffer;    // 벡터에 넣기 전 문자열을 저장해둘 변수이다.
+
+    FILE* stream;
+
+    if (NULL == (stream = fopen(_path.c_str(), "rt"))) {
+        std::cout << "Unable to open: " << _path << std::endl;
+        exit(1);
+    }
+
+    errno = 0;
+    while (EOF != (szASCII = fgetc(stream))) {
+        // 개행 문자(아스키코드 10)일 경우
+        if (szASCII == 10) {
+            // 문자 배열을 문자 배열 벡터에 추가합니다.
+            m_vsCell.push_back(sBuffer);
+            // 문자 배열 벡터를 2 차원 벡터에 추가합니다.
+            m_vvsExcel.push_back(m_vsCell);
+            // 최대 행 크기를 갱신합니다.
+            if (m_unColumn < static_cast<unsigned int>(m_vsCell.size() - 1))
+                m_unColumn = static_cast<unsigned int>(m_vsCell.size() - 1);
+            // 문자 배열 벡터를 초기화합니다.
+            m_vsCell.clear();
+            // 임시 문자열을 초기화합니다.
+            sBuffer = "";
+            // 최대 열 크기를 갱신합니다.
+            m_unRow++;
+        }
+        // 쉼표(아스키코드 44)일 경우
+        else if (szASCII == 44) {
+            std::cout << "sBuffer: " << sBuffer << std::endl;
+            // 문자 배열을 문자 배열 벡터에 추가합니다.
+            m_vsCell.push_back(sBuffer);
+            // 임시 문자열을 초기화 합니다.
+            sBuffer = "";
+        }
+        else
+            sBuffer += szASCII;
+
+    }
+
+    if (EILSEQ == errno) {
+        std::cout << "An invalid wide character was encountered." << std::endl;
+        exit(1);
+    }
+    fclose(stream);
+}
+
+
 // fopen 의 파일 모드 옵션에 인코딩 타입 지정해 읽기
 void CExcel::SetCSV_utf8(std::string _path) {
     wchar_t wcASCII;    //  wchar_t 형식 ASCII 코드를 표현할 변수이다.
     std::string sBuffer;    // 벡터에 넣기 전 문자열을 저장해둘 변수이다.
-
+    typeid(_path).name();
     FILE* stream;
 
     if (NULL == (stream = fopen(_path.c_str(), "rt+,ccs=UTF-8"))) {
         /*
         C6284: 개체가 _Param_(2)으로 전달되었습니다. 'printf'에 대한 호출에는 문자열이 필요합니다.
-        실제 형식: 'class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >'
+        실제 형식: 'class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char>>'
+        
+        #include <typeinfo>
+        typeid(_path).name()
+        로 출력해보면 똑같은 타입이 출력된다.
         */
-        printf("Unable to open: %s \n", _path);
+        /*
+        std::filesystem 호출이 되지 않는다.
+        */
+        std::cout << "Unable to open: " << _path << std::endl;
         exit(1);
     }
 
@@ -110,6 +167,7 @@ void CExcel::SetCSV_utf8(std::string _path) {
     while (WEOF != (wcASCII = fgetwc(stream))) {
         if (wcASCII == 10)
         {
+            std::cout << sBuffer << std::endl;
             // 문자 배열을 문자 배열 벡터에 추가합니다.
             m_vsCell.push_back(sBuffer);
             // 문자 배열 벡터를 2 차원 벡터에 추가합니다.
@@ -138,7 +196,7 @@ void CExcel::SetCSV_utf8(std::string _path) {
         
         
     if (EILSEQ == errno) {
-        printf("An invalid wide character was encountered.\n");
+        std::cout << "An invalid wide character was encountered." << std::endl;
         exit(1);
     }
     fclose(stream);

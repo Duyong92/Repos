@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
+#include <typeinfo>
 // CSV.cpp
 std::string CSVToString(const char* _path);
 
