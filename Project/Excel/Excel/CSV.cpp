@@ -1,43 +1,6 @@
 #include "Excel.h"
 
 /*
-    string 객체의 최대 길이는 42억이지만 물리적인 메모리 한계까지만 쓸 수 있다고 한다.
-    CSV 같은 형태의 메모리 사용량은 감당할 수 있지만, 대용량 데이터에는 적합하지 않은 코드이다.
- 
-    인자 : 
-    const char* _path : 상수 케릭터 포인터로 받는 파일의 경로이다.
- 
-    결과값 :
-    std::string
-*/
-std::string CSVToString(const char* _path) {
-    std::ifstream in(_path);
-    std::string s;
-
-    if (in.is_open()) {
-        // 위치 지정자를 파일 끝으로 옮긴다.
-        in.seekg(0, std::ios::end);
-
-        // 그리고 그 위치를 읽는다. (파일의 크기)
-        int size = in.tellg();
-        
-        // 그 크기의 문자열을 할당한다.
-        s.resize(size);
-
-        // 위치 지정자를 다시 파일 맨 앞으로 옮긴다.
-        in.seekg(0, std::ios::beg);
-
-        // 파일 전체 내용을 읽어서 문자열에 저장한다.
-        in.read(&s[0], size);
-    }
-    else {
-        perror("파일을 찾을 수 없습니다!");
-    }
-
-    return s;
-}
-
-/*
     CSV 형식이 ANSI 라고 가정하고 사용하는 함수이며, character 형태로 문자를 받아 ASCII 로 비교하여 셀을 나눈다.
     단 셀 안에 '\'','\,','\n' 등 셀을 구분하는 특수문자는 구분하지 못한다.
     최종적으로 CExcel class 의 2차원 벡터에 데이터를 입력한다.

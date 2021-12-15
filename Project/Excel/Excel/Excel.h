@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <typeinfo>
+
 // CSV.cpp
 std::string CSVToString(const char* _path);
 
@@ -27,3 +27,6 @@ public:
 	std::vector<std::vector<std::string>> GetExcel();
 };
 
+// Text.cpp
+std::string ReadText(std::string _path);
+std::string ReadText_utf8(std::string _path);
