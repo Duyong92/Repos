@@ -17,8 +17,15 @@ int main() {
 	std::cout << cExcel_utf8.GetExcel()[3][0] << std::endl;
 	*/
 
-	std::cout << ReadText_utf8("read_csv_test.csv") << std::endl;
+	//std::cout << ReadText_utf8("read_csv_test.csv") << std::endl;
 	//std::cout << ReadText("211012_XFA1_001_1.csv") << std::endl;
+
+	/*CExcel cExcel;
+	cExcel.SetCSV("211012_XFA1_001_1.csv");
+	std::vector<std::vector<std::string>> excel = cExcel.GetExcel();
+	std::cout << excel[0][2] << std::endl;*/
+
+	std::cout << ReadText_utf8("read_csv_test.csv") << std::endl;
 
 	return 0;
 }

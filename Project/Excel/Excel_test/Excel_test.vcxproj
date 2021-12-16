@@ -143,6 +143,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="CSV.cpp" />
     <ClCompile Include="Excel.cpp" />
+    <ClCompile Include="Encoding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Excel.h" />

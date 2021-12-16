@@ -21,11 +21,12 @@ void CExcel::SetCSV(std::string _path) {
         std::cout << "Unable to open: " << _path << std::endl;
         exit(1);
     }
-    
+
     errno = 0;
     while (EOF != (szASCII = fgetc(stream))) {
         // 개행 문자(아스키코드 10)일 경우
         if (szASCII == 10) {
+            std::cout << "sBuffer: " << sBuffer << std::endl;
             // 문자 배열을 문자 배열 벡터에 추가합니다.
             m_vsCell.push_back(sBuffer);
             // 문자 배열 벡터를 2 차원 벡터에 추가합니다.
@@ -42,7 +43,7 @@ void CExcel::SetCSV(std::string _path) {
         }
         // 쉼표(아스키코드 44)일 경우
         else if (szASCII == 44) {
-            std::cout << "sBuffer: " << sBuffer << std::endl;
+//            std::cout << "sBuffer: " << sBuffer << std::endl;
             // 문자 배열을 문자 배열 벡터에 추가합니다.
             m_vsCell.push_back(sBuffer);
             // 임시 문자열을 초기화 합니다.
@@ -50,7 +51,6 @@ void CExcel::SetCSV(std::string _path) {
         }
         else 
             sBuffer += szASCII;
-            
     }
     
     if (EILSEQ == errno) {

@@ -26,4 +26,6 @@ public:
 	std::vector<std::vector<std::string>> GetExcel();
 };
 
-
+// Encoding.cpp
+void Encoding_test();
+void Encoding_test2();
