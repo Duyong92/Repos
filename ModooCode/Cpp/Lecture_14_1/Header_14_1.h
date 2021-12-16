@@ -19,7 +19,5 @@ void std_Function_1();
 void Mem_fn();
 
 // std_Bind.cpp
-void add(int x, int y);
-void subtract(int x, int y);
 void std_Bind();
 void std_Bind_1();
