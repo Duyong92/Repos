@@ -21,6 +21,12 @@
     <ClCompile Include="Parallelize.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread_advanced.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header_15_1.h">

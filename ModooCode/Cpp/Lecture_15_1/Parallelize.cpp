@@ -12,7 +12,7 @@ void Fibonacci() {
 	}
 	std::cout << "F100: " << cur << std::endl;
 }
-
+/*
 void DownloadMap() {
 	// 다운 받으려는 웹사이트와 내용을 저장하는 맵
 	std::map<std::string, std::string> url_and_content;
@@ -23,3 +23,4 @@ void DownloadMap() {
 		itr->second = download(url);
 	}
 }
+*/

@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClCompile Include="Main_15_1.cpp" />
     <ClCompile Include="Parallelize.cpp" />
+    <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="Thread_advanced.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header_15_1.h" />
