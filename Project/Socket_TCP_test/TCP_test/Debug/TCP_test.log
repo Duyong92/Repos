@@ -1,0 +1,6 @@
+﻿  Server.cpp
+  Client.cpp
+C:\Users\User\source\Repos\Project\Socket\TCP_test\Client.cpp(13,7): warning C4101: 'sendBuf' :참조되지 않은 지역 변수입니다.
+  Main.cpp
+  코드를 생성하고 있습니다...
+  TCP_test.vcxproj -> C:\Users\User\source\Repos\Project\Socket\Debug\TCP_test.exe
