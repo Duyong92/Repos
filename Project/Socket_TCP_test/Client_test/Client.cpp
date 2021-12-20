@@ -34,6 +34,14 @@ int main(void)
 		return false;
 	}
 
+		/* int connect(SOCKET s, const struct sockaddr FAR * name, int namelen)
+	s : 클라이언트 소켓의 file descriptor 이다.
+	addr : 연결 요청을 보낼 서버의 주소 정보를 지닌 구조체 변수의 포인터이다.
+	addrlen : serv_addr 포인터가 가리키는 주소 정보 구조체 변수의 크기이다.
+	리턴 값
+		성공 시 : 0
+		실패 시 : -1
+	*/
 	if (connect(clientSocket, reinterpret_cast<const sockaddr*>(&target), sizeof(target)) == SOCKET_ERROR)
 	{
 		cout << "[Client][" << currentTime() << "] : Connect error: " << WSAGetLastError() << endl;
