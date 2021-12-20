@@ -30,7 +30,7 @@ void recv_data(SOCKET &s,int client_num)
 
 	return; 
 } 
-
+ 
 void accpetclients()
 { 
 	char client_num[10]; 
