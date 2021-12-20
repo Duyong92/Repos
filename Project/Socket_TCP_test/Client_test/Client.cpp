@@ -42,9 +42,9 @@ int main(void)
 		return false;
 	}
 
-	cout << "Sending HELLO..." << endl;
+	cout << "Sending Client..." << endl;
 
-	nBytesSent = send(clientSocket, "HELLO", strlen("HELLO"), 0);
+	nBytesSent = send(clientSocket, "Client", strlen("Client"), 0);
 
 	int nCounet;
 	string strNumber;
