@@ -147,6 +147,7 @@ void openSocket(int PORT)
 		}
 		else
 		{
+			cout << "test : " << client_sock[atoi(sendnum)] << endl;
 			send(client_sock[atoi(sendnum)], msg, strlen(msg), 0); // 아니라면 한명에게만 전송 
 		}
 	}
