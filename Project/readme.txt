@@ -23,6 +23,7 @@ To Do
 다중 클라이언트 관리
 
 Else
+211220
 10:30 git 잘못된 운용으로 인한 작업 손실 / 꾸준한 push 와 pool 을 통해 관리 필요
 
 12:00  Socket_TCP_mintnlatte PF_INET 형식이라 예제 포기
