@@ -1,3 +1,4 @@
+#pragma warning(disable:4996)
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <atlbase.h>
@@ -16,6 +17,7 @@ using std::wstring;
 #define BUFFER_SIZE 80
 #define HEADER_SIZE
 
+// 파일 크기를 반환해주는 함수이다.
 int getFileSize(FILE* _file)
 {
 	int nRet;
@@ -40,6 +42,7 @@ int getFileSize(FILE* _file)
 	return nRet;
 }
 
+// string에서 wide string로 바꿔주는 함수이다.
 wstring s2ws(const string& _string)
 {
 	int nLength;
@@ -172,4 +175,5 @@ void main()
 
 	FindClose(hFind);
 	closesocket(sktClient);
+	return;
 }
