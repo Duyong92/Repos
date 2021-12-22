@@ -107,7 +107,8 @@ int main() {
 
 	// WinSock 초기화
 	WSADATA wsa;
-	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) return -1;
+	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) 
+		return -1;
 
 	// Socket 생성
 	SOCKET mainSock;

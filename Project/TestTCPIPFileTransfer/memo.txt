@@ -1,5 +1,5 @@
 211222
-1550
+1550:
 https://mystes.tistory.com/51
 1651: 
 c2065
@@ -9,3 +9,8 @@ E0167, CreateFile char* 형식의 인수가 LPCWSTR 형식의 매개 변수와 �
 https://www.codegrepper.com/code-examples/cpp/c%2B%2B+convert+const+char%2A+to+LPCWSTR
 const char* to LPCWSTR
 C4700, dataAddr, dataSock 초기화
+dataSock accept() 누락 부분 추가로 해결
+1730:
+https://mystes.tistory.com/52?category=825509
+1755:
+Server 폴더에 test.txt 생성 후 실험 성공
