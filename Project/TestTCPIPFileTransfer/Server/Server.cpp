@@ -185,7 +185,7 @@ int main() {
 		0,	// dwMaximumSizeLow
 		NULL
 	);
-
+	 
 	// 수신 스레드 생성
 	DWORD hDataThreadID;
 	HANDLE hDataThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)dataSending, (SOCKET*)dataSock, 0, &hDataThreadID);
