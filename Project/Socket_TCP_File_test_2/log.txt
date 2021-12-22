@@ -1,0 +1,13 @@
+211222
+1120 : fseek(), ftell(), rewind() 다시 확인
+1152 : 전처리 및 다 제외하고 비교
+1204 : USES_CONVERSION 매크로 선언 이유 및 LPCWSTR
+https://synapticlab.co.kr/138
+L"string" 형식 가능
+1302 : _T 매크로는 리터럴 문자열을 일반적으로 코딩한다.
+#define _UNICODE 가 있으면 유니코드로 변환된다.
+1316 : _tprintf(_T("텍스트내용")); 한글을 출력할 수 있다.
+1324 : sprintg(,,W2A()) 의 W2A가 _lpw를 식별하기 위해 USES_CONVERSION을 선언해야 한다.
+USES_CONVERSION을 선언하기 위해서는 atlbase.h나 atlconv.h를 헤더로 include 해줘야 한다.
+굳이 필요 없는 코드이기 때문에 추후에 삭제할 예정이다.
+1509 : ERROR를 다 붙여주는 이유가 있었다.
