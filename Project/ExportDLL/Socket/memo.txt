@@ -1,0 +1,10 @@
+211223
+Windows API : GetFileSize()
+https://m.blog.naver.com/hsshee/70039393130
+1754
+C2572
+
+211227
+0852 C6387
+pbFile이 0일 경우 강제 종료 시킨다.
+

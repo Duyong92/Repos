@@ -1,0 +1,8 @@
+211227
+argc, argv 란?
+https://genesis8.tistory.com/31
+argc!=3은 안되는건가요?
+stderr?
+wsaapi?
+https://stackoverflow.com/questions/4973239/what-is-in-and-wsaapi
+inet_addr
