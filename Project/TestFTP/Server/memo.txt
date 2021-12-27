@@ -1,0 +1,33 @@
+#pragma comment?
+
+fstream
+file read
+
+time(NULL)
+https://modoocode.com/114
+
+getfilesize()
+https://irontooth.tistory.com/97
+읽은 hFile, 32비트 미만 시 NULL 초과 시 lpFileSizeHigh 참조하여 사이즈 리턴
+# 참고 : 파일 크기가 4GB 이하일 시 32비트 미만이다.
+
+htonl(), htons(). ntohl(), ntohs()
+https://m.blog.naver.com/lovinghc/30031089847
+
+INADDR_ANY
+https://mintnlatte.tistory.com/555
+설정한 포트번호를 목적지로 하는 모든 연결 요청에 대해 처리한다.
+
+listen()
+https://varioproger.tistory.com/38
+
+createthread()
+https://docs.microsoft.com/ko-kr/windows/win32/procthread/creating-threads
+CreateThread 함수 : https://qkfmxha.tistory.com/78
+
+
+shutdown()
+https://chfhrqnfrhc.tistory.com/entry/소켓-종료
+
+MapViewOfFile()
+http://egloos.zum.com/sweeper/v/2990023
