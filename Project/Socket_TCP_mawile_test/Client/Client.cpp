@@ -79,6 +79,9 @@ void openSocket(char IP[], int PORT)
 		return;
 	}
 
+	/* something haven't change in here
+	please check what it was by referencing TestFTP.cpp*/
+
 	char szBuffer[PACKET_SIZE];
 	ZeroMemory(szBuffer, sizeof(szBuffer));
 
