@@ -1,0 +1,5 @@
+LNK1104 'python38_d.lib' 파일을 열 수 없습니다.
+https://kiya.tistory.com/2
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=wwwkasa&logNo=220527874475
+2.7 버전과 3.8 버전의 차이만 수정
