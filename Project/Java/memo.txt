@@ -1,0 +1,2 @@
+java로 헤더를 만들어 C++에서 사용
+https://202psj.tistory.com/1506
