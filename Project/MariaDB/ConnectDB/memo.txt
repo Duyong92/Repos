@@ -1,0 +1,7 @@
+git failed with fatal error
+fatla error: mmap failed: invalid argument
+-> 커밋 취소 후 다시 푸시
+
+C++ MariaDB 연동
+https://languagestory.tistory.com/5
+

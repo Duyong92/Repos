@@ -1,0 +1,7 @@
+https://languagestory.tistory.com/5
+
+mysql_real_connect()
+비밀번호, DB, PORT 번호 수정
+
+sprinf_s()
+select 문 수정

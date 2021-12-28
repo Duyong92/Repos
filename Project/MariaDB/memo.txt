@@ -1,0 +1,26 @@
+downloads.mariadb.org
+MariaDB
+10.6.5
+
+Service Name : MariaDB
+TCP port : 3306
+Buffer pool size : 2015 MB
+Page size : 16 KB
+
+REST API
+https://downloads.mariadb.org/rest-api/products/
+
+CLI 로 MariaDB 접속 원할 시
+C:\Program Files\MariaDB 10.6\bin\
+
+MariaDB 참고
+https://blog.naver.com/jihye_sally_yoon/221410998245
+
+Sample DB
+https://dev.mysql.com/doc/employee/en/employees-installation.html
+https://github.com/datacharmer/test_db
+
+git failed with a fatal error
+warning: LF will be replaced by CRLF in MariaDB/test_db-master/sakila.sakila-mv-schema.sql.
+the file will have its original line endings in your working directory
+https://dabo-dev.tistory.com/13
