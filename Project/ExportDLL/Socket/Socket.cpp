@@ -90,16 +90,16 @@ namespace Socket {
 			qwFileSize -= dwBytesInBlock;
 		}
 	}
-	char* WINAPI dataRecv(LPVOID arg, HANDLE _hFile, HANDLE _hFileMapping) {
-		char* pbFile;
-		SOCKET dataSock = (SOCKET)arg;
-		SOCKADDR_IN dataAddr;
-		int dataAddrSize = sizeof(dataAddr);
-		int retval;
-		getpeername(dataSock, (SOCKADDR*)&dataAddr, &dataAddrSize);
-		do {
-			retval = recv(dataSock, pbFile, BUFSIZE, 0);
-			pbFile += retval;
-		}
-	}
+	//char* WINAPI dataRecv(LPVOID arg, HANDLE _hFile, HANDLE _hFileMapping) {
+	//	char* pbFile;
+	//	SOCKET dataSock = (SOCKET)arg;
+	//	SOCKADDR_IN dataAddr;
+	//	int dataAddrSize = sizeof(dataAddr);
+	//	int retval;
+	//	getpeername(dataSock, (SOCKADDR*)&dataAddr, &dataAddrSize);
+	//	do {
+	//		retval = recv(dataSock, pbFile, BUFSIZE, 0);
+	//		pbFile += retval;
+	//	} while ();
+	//}
 }

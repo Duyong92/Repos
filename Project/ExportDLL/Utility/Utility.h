@@ -6,4 +6,4 @@
 #define UTILITY_API __declspec(dllimport)
 #endif
 
-extern "C" UTILITY_API void errorPrint()
+extern "C" UTILITY_API void errorPrint(const char* message);
