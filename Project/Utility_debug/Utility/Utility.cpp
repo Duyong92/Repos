@@ -31,6 +31,7 @@ std::vector<std::string> get_files_inDirectory(const std::string& _path, const s
     do
     {
         printf(fd.name);
+        printf("\n");
         return_.push_back(fd.name);
         result = _findnext(handle, &fd);
     } while (result != -1);
@@ -43,8 +44,8 @@ std::vector<std::string> get_files_inDirectory(const std::string& _path, const s
 // TCHAR, wchar 등을 사용하는 경우는 _tmain을 열어준다.
 int _tmain(int argc, LPSTR argv[]) 
 {
-    std::string tmp = get_files_inDirectory("C:\\Users\\User\\source\\Repos\\Project\\Utility_debug\\Utility\\", "*.txt")[0];
-    LPCSTR fileTest = (LPCSTR)tmp.c_str();
+    //std::string tmp = get_files_inDirectory("C:\\Users\\User\\source\\Repos\\Project\\Utility_debug\\Utility\\", "test.txt")[0];
+    //LPCSTR fileTest = (LPCSTR)tmp.c_str();
     
     HANDLE fHandle;
     TCHAR Strings[] = _T("AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPP");
@@ -55,8 +56,9 @@ int _tmain(int argc, LPSTR argv[])
         _T("Korean")
     );
 
-    fHandle = CreateFileA(                // HANDLE CreateFile();
-        fileTest,               // LPCTSTR lpFileName, TCHAR 타입의 파일이름
+    // CreateFile()에서 특정 파일을 불러와 실행시키기 위해 CreateFileA()로 변경하였다.
+    fHandle = CreateFile(                // HANDLE CreateFile();
+        _T("data.txt"),//fileTest,               // LPCTSTR lpFileName, TCHAR 타입의 파일이름
         GENERIC_READ | GENERIC_WRITE, // DWORD dwDesiredAccess, 만들고자 하는 파일의 접근 권한 |(or) 를 이용해서 여러개 적을 수 있다.
         0,                            // DWORD dwShareMode, 다른 프로세스에서 이 파일에 접근할때의 권한 마찬가지로 | 사용가능
         NULL,                         // LPSECURITY_ATTRIBUTES lpSecurityAttributes, 보안에 관련된 구조체 설정. 기본적으로 NULL을 쓴다.

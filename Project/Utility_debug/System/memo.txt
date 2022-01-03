@@ -1,0 +1,4 @@
+https://www.delftstack.com/ko/howto/cpp/system-in-cpp/
+system('ls'), system('top') 모두 실행 되지 않는다.
+
+윈도우라 유닉스 라이브러리를 지원하지 않는다.
