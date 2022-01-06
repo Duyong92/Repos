@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="content\Block.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\BlockEmitter.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\Button.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\GameArea.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\LogoAnimation.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\MenuEmitter.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\PaintEmitter.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\PrimaryPack.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\PuzzleBlock.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\SamegameText.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\Settings.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\SimpleBlock.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\SmokeText.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\TemplateBase.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\background-puzzle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\background.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\bar.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\blue-puzzle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\blue.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\bubble-highscore.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\bubble-puzzle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-game-1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-game-2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-game-3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-game-4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-game-new.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-menu.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-puzzle-next.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\but-quit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\green-puzzle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\green.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\icon-fail.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\icon-ok.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\icon-time.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level0.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level1.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level2.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level3.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level4.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level5.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level6.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level7.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level8.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\levels\level9.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\logo-a.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\logo-e.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\logo-g.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\logo-m.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\logo-s.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\particle-brick.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\particle-paint.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\particle-smoke.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\qmldir">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\red-puzzle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\red.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\samegame.js">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="samegame.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="samegame.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="content\gfx\text-highscore-new.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-highscore.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-no-winner.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-p1-go.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-p1-won.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-p1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-p2-go.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-p2-won.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\text-p2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\yellow-puzzle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\gfx\yellow.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
