@@ -47,7 +47,7 @@
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
-
+// 여기서 수정이 가능한가?
 #include <QGuiApplication>
 #include <QQmlEngine>
 #include <QQmlFileSelector>
