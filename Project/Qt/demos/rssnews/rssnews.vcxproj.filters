@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\content">
+      <UniqueIdentifier>{2426de52-255f-469a-a8cb-d9fc7ba90034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\content\images">
+      <UniqueIdentifier>{19fea0c2-3e2a-4c3e-af90-018416a5ae13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtRcc Include="qml.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="main.qml">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="rssnews.pri">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="rssnews.pro">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="rssnews.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="rssnews.qmlproject">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="content\BusyIndicator.qml">
+      <Filter>Resource Files\content</Filter>
+    </None>
+    <None Include="content\CategoryDelegate.qml">
+      <Filter>Resource Files\content</Filter>
+    </None>
+    <None Include="content\NewsDelegate.qml">
+      <Filter>Resource Files\content</Filter>
+    </None>
+    <None Include="content\RssFeeds.qml">
+      <Filter>Resource Files\content</Filter>
+    </None>
+    <None Include="content\ScrollBar.qml">
+      <Filter>Resource Files\content</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="rssnews.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="content\images\Asia.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Business.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Entertainment.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Europe.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Health.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Politics.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Science.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Sports.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\Technology.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\TopStories.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\USNational.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\World.jpg">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\btn_close.png">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\busy.png">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+    <Image Include="content\images\scrollbar.png">
+      <Filter>Resource Files\content\images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

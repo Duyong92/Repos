@@ -1,0 +1,8 @@
+﻿import QmlProject 1.1
+
+Project {
+    mainFile: "clocks.qml"
+    QmlFiles { directory: "." }
+    JavaScriptFiles { directory: "." }
+    ImageFiles { directory: "." }
+}
