@@ -7,6 +7,6 @@ using namespace std;
 
 wchar_t* pbzPSZ(const char* _pbz);
 
-LPCWSTR strLPCWSTR(string _str);
-
-LPCWSTR cpbzLPCWSTR(const char* _cpbz, UINT CodePage = CP_ACP);
+LPCWSTR pbzLPCWSTR(char* _pbz);
+LPCWSTR pbzLPCWSTR(string _str);
+LPCWSTR pbzLPCWSTR(const char* _cpbz);
