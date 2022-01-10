@@ -1,0 +1,16 @@
+https://github.com/QtExcel/QXlsx 이후 추가 사항
+
+추가 포함 디렉터리에 하단 경로 추가해야 합니다.
+C:\Qt\5.12.12\msvc2017_64\include\QtGui\5.12.12\QtGui
+C:\Qt\5.12.12\msvc2017_64\include\QtGui\5.12.12
+C:\Qt\5.12.12\msvc2017_64\include\QtCore\5.12.12
+
+상단 경로에 영향을 받는 header들은 하단과 같습니다.
+<private/qzipreader_p.h>, <private/qzipwriter_p.h>
+<QtGui/private/qtguiglobal_p.h>
+<QtCore/private/qglobal.h>, <QtCore/private>
+
+하단의 파일을 수정합니다.
+qtguiqlobal_p.h에서 #include <QtCore/private> 주석 처리
+
+220107 1320 동작하는 시퀀스 나중에 조금 더 자세히 보기 바랍니다

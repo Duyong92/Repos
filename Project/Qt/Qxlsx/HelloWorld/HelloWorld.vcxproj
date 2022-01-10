@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="xlsxabstractooxmlfile.cpp" />
+    <ClCompile Include="xlsxabstractsheet.cpp" />
+    <ClCompile Include="xlsxcell.cpp" />
+    <ClCompile Include="xlsxcellformula.cpp" />
+    <ClCompile Include="xlsxcelllocation.cpp" />
+    <ClCompile Include="xlsxcellrange.cpp" />
+    <ClCompile Include="xlsxcellreference.cpp" />
+    <ClCompile Include="xlsxchart.cpp" />
+    <ClCompile Include="xlsxchartsheet.cpp" />
+    <ClCompile Include="xlsxcolor.cpp" />
+    <ClCompile Include="xlsxconditionalformatting.cpp" />
+    <ClCompile Include="xlsxcontenttypes.cpp" />
+    <ClCompile Include="xlsxdatavalidation.cpp" />
+    <ClCompile Include="xlsxdatetype.cpp" />
+    <ClCompile Include="xlsxdocpropsapp.cpp" />
+    <ClCompile Include="xlsxdocpropscore.cpp" />
+    <ClCompile Include="xlsxdocument.cpp" />
+    <ClCompile Include="xlsxdrawing.cpp" />
+    <ClCompile Include="xlsxdrawinganchor.cpp" />
+    <ClCompile Include="xlsxformat.cpp" />
+    <ClCompile Include="xlsxmediafile.cpp" />
+    <ClCompile Include="xlsxnumformatparser.cpp" />
+    <ClCompile Include="xlsxrelationships.cpp" />
+    <ClCompile Include="xlsxrichstring.cpp" />
+    <ClCompile Include="xlsxsharedstrings.cpp" />
+    <ClCompile Include="xlsxsimpleooxmlfile.cpp" />
+    <ClCompile Include="xlsxstyles.cpp" />
+    <ClCompile Include="xlsxtheme.cpp" />
+    <ClCompile Include="xlsxutility.cpp" />
+    <ClCompile Include="xlsxworkbook.cpp" />
+    <ClCompile Include="xlsxworksheet.cpp" />
+    <ClCompile Include="xlsxzipreader.cpp" />
+    <ClCompile Include="xlsxzipwriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HelloWorld.pro" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="xlsxabstractooxmlfile.h" />
+    <ClInclude Include="xlsxabstractooxmlfile_p.h" />
+    <ClInclude Include="xlsxabstractsheet.h" />
+    <ClInclude Include="xlsxabstractsheet_p.h" />
+    <ClInclude Include="xlsxcell.h" />
+    <ClInclude Include="xlsxcellformula.h" />
+    <ClInclude Include="xlsxcellformula_p.h" />
+    <ClInclude Include="xlsxcelllocation.h" />
+    <ClInclude Include="xlsxcellrange.h" />
+    <ClInclude Include="xlsxcellreference.h" />
+    <ClInclude Include="xlsxcell_p.h" />
+    <ClInclude Include="xlsxchart.h" />
+    <ClInclude Include="xlsxchartsheet.h" />
+    <ClInclude Include="xlsxchartsheet_p.h" />
+    <ClInclude Include="xlsxchart_p.h" />
+    <ClInclude Include="xlsxcolor_p.h" />
+    <ClInclude Include="xlsxconditionalformatting.h" />
+    <ClInclude Include="xlsxconditionalformatting_p.h" />
+    <ClInclude Include="xlsxcontenttypes_p.h" />
+    <ClInclude Include="xlsxdatavalidation.h" />
+    <ClInclude Include="xlsxdatavalidation_p.h" />
+    <ClInclude Include="xlsxdatetype.h" />
+    <ClInclude Include="xlsxdocpropsapp_p.h" />
+    <ClInclude Include="xlsxdocpropscore_p.h" />
+    <QtMoc Include="xlsxdocument.h" />
+    <ClInclude Include="xlsxdocument_p.h" />
+    <ClInclude Include="xlsxdrawinganchor_p.h" />
+    <ClInclude Include="xlsxdrawing_p.h" />
+    <ClInclude Include="xlsxformat.h" />
+    <ClInclude Include="xlsxformat_p.h" />
+    <ClInclude Include="xlsxglobal.h" />
+    <ClInclude Include="xlsxmediafile_p.h" />
+    <ClInclude Include="xlsxnumformatparser_p.h" />
+    <ClInclude Include="xlsxrelationships_p.h" />
+    <ClInclude Include="xlsxrichstring.h" />
+    <ClInclude Include="xlsxrichstring_p.h" />
+    <ClInclude Include="xlsxsharedstrings_p.h" />
+    <ClInclude Include="xlsxsimpleooxmlfile_p.h" />
+    <ClInclude Include="xlsxstyles_p.h" />
+    <ClInclude Include="xlsxtheme_p.h" />
+    <ClInclude Include="xlsxutility_p.h" />
+    <ClInclude Include="xlsxworkbook.h" />
+    <ClInclude Include="xlsxworkbook_p.h" />
+    <ClInclude Include="xlsxworksheet.h" />
+    <ClInclude Include="xlsxworksheet_p.h" />
+    <ClInclude Include="xlsxzipreader_p.h" />
+    <ClInclude Include="xlsxzipwriter_p.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7EC62842-F3C5-4D03-B051-AAFF8D8EDF10}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>5.12.12_msvc2017_64</QtInstall>
+    <QtModules>core</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>5.12.12_msvc2017_64</QtInstall>
+    <QtModules>core</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalLibraryDirectories>C:\Qt\5.12.12\msvc2017_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Qt\5.12.12\msvc2017_64\include\QtGui\5.12.12\QtGui;C:\Qt\5.12.12\msvc2017_64\include\QtGui\5.12.12;C:\Qt\5.12.12\msvc2017_64\include\QtCore\5.12.12;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>$(Qt_DEFINES_);%(PreprocessorDefinitions);</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
