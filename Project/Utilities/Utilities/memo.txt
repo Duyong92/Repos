@@ -1,0 +1,5 @@
+https://blog.codingcat.kr/52
+문자열 변환 및 상관관계 반드시 참조
+
+https://www.convertdatatypes.com/Convert-wchar_t-to-char-in-C.html
+아예 답이 있으니 적당히 코딩할 것

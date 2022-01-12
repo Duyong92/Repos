@@ -15,22 +15,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Xl.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="CXl.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CXl.h">
       <Filter>헤더 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CXl.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="2022-01-11-Second.md">
+    <ClCompile Include="2022-01-12-3.md">
       <Filter>리소스 파일</Filter>
-    </None>
+    </ClCompile>
   </ItemGroup>
 </Project>

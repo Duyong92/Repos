@@ -1,4 +1,13 @@
-#include "CXl.hpp"
+#include "CXl.h"
+
+bool CheckError(HRESULT hr)
+{
+    if (SUCCEEDED(hr))
+        return true;
+    _com_error err(hr);
+    LPCTSTR errMsg = err.ErrorMessage();
+    return false;
+}
 
 HRESULT AutoWrap(int autoType, VARIANT* pvResult, IDispatch* pDisp, LPOLESTR ptName, int cArgs...) {
     // Begin variable-argument list...
@@ -25,7 +34,7 @@ HRESULT AutoWrap(int autoType, VARIANT* pvResult, IDispatch* pDisp, LPOLESTR ptN
     // Get DISPID for name passed...
     hr = pDisp->GetIDsOfNames(IID_NULL, &ptName, 1, LOCALE_USER_DEFAULT, &dispID);
     if (FAILED(hr)) {
-        sprintf(buf, "IDispatch::GetIDsOfNames(\"%s\") failed w/err 0x%08lx", szName, hr);
+        sprintf_s(buf, "IDispatch::GetIDsOfNames(\"%s\") failed w/err 0x%08lx", szName, hr);
         MessageBoxA(NULL, buf, "AutoWrap()", 0x10010);
         _exit(0);
         return hr;
@@ -51,7 +60,7 @@ HRESULT AutoWrap(int autoType, VARIANT* pvResult, IDispatch* pDisp, LPOLESTR ptN
     // Make the call!
     hr = pDisp->Invoke(dispID, IID_NULL, LOCALE_SYSTEM_DEFAULT, autoType, &dp, pvResult, NULL, NULL);
     if (FAILED(hr)) {
-        sprintf(buf, "IDispatch::Invoke(\"%s\"=%08lx) failed w/err 0x%08lx", szName, dispID, hr);
+        sprintf_s(buf, "IDispatch::Invoke(\"%s\"=%08lx) failed w/err 0x%08lx", szName, dispID, hr);
         MessageBoxA(NULL, buf, "AutoWrap()", 0x10010);
         _exit(0);
         return hr;
@@ -82,7 +91,7 @@ int CXl::Init() {
 
     VARIANT result;
     VariantInit(&result);
-    // 이쪽부터 수정해야 합니다. f-1
+    
     AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlApp, (wchar_t*)L"Workbooks", 0);
     m_XlProp.pXlBooks = result.pdispVal;
     m_hrInit = S_OK;
@@ -90,7 +99,6 @@ int CXl::Init() {
 }
 
 int CXl::SetVisible(bool bVisible) {
-    // Variant 부분이 조금 많이 어색합니다. f-1
     if (!CheckError(CheckXlInit())) 
         return -1;
 
@@ -103,15 +111,79 @@ int CXl::SetVisible(bool bVisible) {
     return 1;
 }
 
-int CXl::Open(const char* _file) {
+int CXl::Open() {
     if (Init() < 0)
         return -1;
     if (!CheckError(CheckXlInit()))
         return -1;
-    // 메시지 부분 통일 필요합니다.
-    if (_file == NULL) {
-        ::MessageBoxA(NULL, "파일 정보가 없습니다.", "에러", 0x10010);
-    }
-        
 
+    SetVisible(true);
+
+    return 1;
+}
+
+/*
+int CXl::Open(const char* pszFile) {
+    if (Init() < 0)
+        return -1;
+    if (!CheckError(CheckXlInit()))
+        return -1;
+        
+    VARIANT result;
+    VARIANT path;
+    VariantInit(&result);
+    
+    if (pszFile == NULL) {
+        ::MessageBoxA(NULL, "파일 정보가 없습니다.", "에러", 0x10010);
+        return -1;
+    }
+    
+    _bstr_t str = pszFile;
+    path.vt = VT_BSTR;
+    path.bstrVal = ::SysAllocString(str);
+            
+    AutoWrap(DISPATCH_METHOD, &result, m_XlProp.pXlBooks, (wchar_t*)L"Open", 1, path);
+    m_XlProp.pXlBook = result.pdispVal;
+    SysFreeString(path.bstrVal);
+    
+    return 1;
+}
+*/
+
+int CXl::SetActiveSheet(int nSheet) {
+    VARIANT result;
+    VariantInit(&result);
+    VARIANT sheet;
+    sheet.vt = VT_I4;
+    sheet.lVal = nSheet;
+
+    AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlApp, (wchar_t*)L"Worksheets", 1, sheet);
+    m_XlProp.pXlSheet = result.pdispVal;
+
+    return 1;
+}
+
+int CXl::SetActiveSheet(BSTR strSheet) {
+    VARIANT result;
+    VariantInit(&result);
+    VARIANT sheet;
+    sheet.vt = VT_BSTR;
+    sheet.bstrVal = strSheet;
+
+    AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlApp, (wchar_t*)L"Worksheets", 1, sheet);
+    m_XlProp.pXlSheet = result.pdispVal;
+
+    return 1;
+}
+
+void CXl::Save() {
+    AutoWrap(DISPATCH_METHOD, NULL, m_XlProp.pXlApp, (wchar_t*)L"Save", 0);
+}
+
+void CXl::Close() {
+    AutoWrap(DISPATCH_METHOD, NULL, m_XlProp.pXlApp, (wchar_t*)L"Quit", 0);;
+    m_XlProp.pXlSheet->Release();
+    m_XlProp.pXlBook->Release();
+    m_XlProp.pXlBooks->Release();
+    m_XlProp.pXlApp->Release();
 }

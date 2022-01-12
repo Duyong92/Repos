@@ -130,6 +130,7 @@ int main()
         pXlBooks = result.pdispVal;
     }
 
+    /*
     // Call Workbooks.Add() to get a new workbook...
     IDispatch* pXlBook;
     {
@@ -218,6 +219,9 @@ int main()
     pXlApp->Release();
     VariantClear(&arr);
 
+    */
+
+    Sleep(2000);
     // Uninitialize COM for this thread...
     CoUninitialize();
 
