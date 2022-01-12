@@ -22,8 +22,11 @@ int main() {
             tmp.vt = VT_I4;
             tmp.lVal = i * j;
 
+            std::cout << j;
+
             xl.SetData(arr, tmp,i,j);
         }
+        std::cout << " : "<<i<<" \n";
     }
 
    xl.Print(arr);

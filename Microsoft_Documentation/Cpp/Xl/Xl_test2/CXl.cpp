@@ -1,4 +1,5 @@
 #include "CXl.h"
+#include <comdef.h>
 
 // Able_CommonFunc.cpp charTowchar()
 wchar_t* WIDE(const char* psz) {
@@ -180,18 +181,24 @@ int CXl::AddActiveSheet() {
 }
 
 int CXl::SetRange(const char* pcszStart, const char* pcszEnd) {
-    VARIANT range;
-    range.vt = VT_BSTR;
-    range.bstrVal = ::SysAllocString(WIDE(FormatOutput("%s:%s", pcszStart, pcszEnd)));
+    IDispatch* pXlRange;
+    {
+        _bstr_t str = FormatOutput("%s:%s", pcszStart, pcszEnd);
+        VARIANT range;
+        range.vt = VT_BSTR;
+        range.bstrVal = ::SysAllocString(str);
 
-    VARIANT result;
-    VariantInit(&result);
-    if(CheckError(AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlSheet, "Range", 1, range)))
-        return -1;
-    
-    VariantClear(&range);
+        VARIANT result;
+        VariantInit(&result);
+        if (CheckError(AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlSheet, "Range", 1, range)))
+            return -1;
 
-    m_XlProp.pXlSheet = result.pdispVal;
+        VariantClear(&range);
+
+        pXlRange = result.pdispVal;
+    }
+
+    pXlRange->Release();
 
     return 1;
 }
@@ -214,11 +221,14 @@ int CXl::SetData(VARIANT vaArray, VARIANT vaData, unsigned int unRow, unsigned i
     long indices[] = { unRow, unColumn };
     if (CheckError(SafeArrayPutElement(vaArray.parray, indices, (void*)&vaData)))
         return -1;
+    
+    if (CheckError(AutoWrap(DISPATCH_PROPERTYPUT, NULL, m_XlProp.pXlSheet, "Value", 1, vaArray)))
+        return -1;
 }
 
 int CXl::Print(VARIANT arr) {
-    if (CheckError(AutoWrap(DISPATCH_PROPERTYPUT, NULL, m_XlProp.pXlSheet, "Value", 1, arr)))
-        return -1;
+    
+    
     return 1;
 }
 
@@ -227,9 +237,12 @@ void CXl::Save() {
 }
 
 void CXl::Close() {
+    
     AutoWrap(DISPATCH_METHOD, NULL, m_XlProp.pXlApp, "Quit", 0);
     m_XlProp.pXlSheet->Release();
     m_XlProp.pXlBook->Release();
     m_XlProp.pXlBooks->Release();
     m_XlProp.pXlApp->Release();
+    CoUninitialize();
+    MessageBoxA(NULL, "성공적으로 작업이 종료되었습니다", "알림", MB_OK | MB_ICONINFORMATION);
 }
