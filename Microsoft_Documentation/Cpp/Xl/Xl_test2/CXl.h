@@ -11,6 +11,9 @@ private:
 		IDispatch* pXlBooks;	// Main Frame
 		IDispatch* pXlBook;		// Work Book
 		IDispatch* pXlSheet;	// Sheet
+		IDispatch* pXlRange;	// Range
+
+		VARIANT pvaArray;
 	} m_XlProp;
 
 public:
@@ -27,31 +30,35 @@ public:
 
 	int Open();
 
-	int AddWorkBook();
+	int AddWorkBooks();
 
 	int AddActiveSheet();
 
-	//XFD1048576 가 최대지만 메모리 리소스 부족으로 가로 세로 5000 정도로 제한합니다.
+	//XFD1048576 가 최대지만 메모리 리소스 부족으로 가로 세로 3540 정도로 제한합니다.
 	//default로 실행 했을 경우 clock() 기준으로 628.000 ms 정도 소요됩니다.
-	int SetRange(const char* pcszStart = "A1", const char* pcszEnd = "EFD05000");
+	int SetRange(const char* pcszStart = "A1", const char* pcszEnd = "EFD3540");
 
-	int SetSafeBound(VARIANT& va, unsigned int unYMin = 1, unsigned int unYMax = 100, unsigned int unXMin = 1, unsigned int unXMax = 100);
+	int SetSafeBound(	unsigned int unRowMin = 1, 
+									unsigned int unRowMax = 3540,
+									unsigned int unColumnMin = 1, 
+									unsigned int unColumnMax = 3540);
+	int SetSafeBound(const char* pcszStart = "A1", const char* pcszEnd = "EFD3540");
 
-	int SetData(VARIANT vaArray, VARIANT vaData, unsigned int unRow, unsigned int unColumn);
+	int SetData(const char* pcszData, long lRow, long lColumn);
 
-	int Print(VARIANT vaArray);
+	int Print();
 
 	int SetActiveSheet(int nSheet);
 
 	/// <summary>
 	/// 작업한 내용을 저장합니다.
 	/// </summary>
-	void Save();
+	int Save();
 
 	/// <summary>
 	/// Excel을 종료합니다.
 	/// </summary>
-	void Close();
+	int Close();
 
 protected:
 	/// <summary>

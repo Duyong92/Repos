@@ -3,35 +3,27 @@
 int main() {
     CXl xl;
     xl.Open();
-    xl.AddWorkBook();
+    
+    //printf("SetSafeBound %d\n", xl.SetSafeBound(1,20,1,26));
+    printf("SetSafeBound %d\n", xl.SetSafeBound("A1", "Z26"));
 
-    xl.AddActiveSheet();
-    
-    xl.SetRange("A1","P20");
-    
-     VARIANT arr;
-     VariantInit(&arr);
-     xl.SetSafeBound(arr, 1, 5000, 1, 5000);
-    
     //여기서부터 엑셀 작업을 해주시면 됩니다.
-    // SafeArray를 넘어가게 되면 '잘 못된 색인입니다'라는 오류가 발생합니다.
-    for (int i = 1; i <= 10; i++) {
-        for (int j = 1; j <= 20; j++) {
-            // Create entry value for (i,j)
-            VARIANT tmp;
-            tmp.vt = VT_I4;
-            tmp.lVal = i * j;
+    printf("SetData %d\n", xl.SetData("hi", 1, 1));
 
-            std::cout << j;
+    printf("SetData2 %d\n", xl.SetData("hello", 1, 2));
+    //여기까지만 작업하시면 됩니다.
 
-            xl.SetData(arr, tmp,i,j);
-        }
-        std::cout << " : "<<i<<" \n";
-    }
+    printf("%d\n", xl.AddActiveSheet());
 
-   xl.Print(arr);
+    printf("%d\n", xl.SetRange("A1", "Z15"));
+    
+    printf("%d\n", xl.Print());
 
-   xl.Close();
+    //printf("%d", xl.Save());
+   
 
+    //xl.Close();
+
+    //CoUninitialize();
     return 0;
 }

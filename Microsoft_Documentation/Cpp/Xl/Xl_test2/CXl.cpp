@@ -1,5 +1,35 @@
 #include "CXl.h"
-#include <comdef.h>
+#include <comdef.h> // _bstr_t
+#include <regex>    // regex, smatch
+#include <vector>   // vector
+
+using namespace std;
+
+unsigned int* ConvertXlNumber(const char* psz) {
+    vector<string> vsBuf;
+    string strColumn;
+    int nBuf = 0;
+    unsigned int unRow = 0; 
+    smatch match;
+
+    for (int i = 0; i < strlen(psz); i++) {
+        vsBuf.emplace_back(string(1,psz[i]));
+
+        if (regex_match(vsBuf[i], match, regex("[A-Z]")))
+            nBuf++;
+        else if(regex_match(vsBuf[i], match, regex("[0-9]")))
+            strColumn += psz[i];
+    }
+
+    unsigned int power[3] = { 1,26,26 * 26 };
+
+    for (int i = 0, j = nBuf - 1; i < nBuf; i++, j--)
+        unRow += (psz[i] - 64) * power[j];
+
+    unsigned int result[2] = { unRow, stoi(strColumn) };
+
+    return result;
+}
 
 // Able_CommonFunc.cpp charTowchar()
 wchar_t* WIDE(const char* psz) {
@@ -140,7 +170,18 @@ int CXl::SetVisible(bool bVisible) {
     x.vt = VT_I4;
     x.lVal = bVisible ? 1 : 0;
     if (CheckError(AutoWrap(DISPATCH_PROPERTYPUT, NULL, m_XlProp.pXlApp, "Visible", 1, x)))
+        return -2;
+
+    return 1;
+}
+
+int CXl::AddWorkBooks() {
+    VARIANT result;
+    VariantInit(&result);
+    if (CheckError(AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlBooks, "Add", 0)))
         return -1;
+
+    m_XlProp.pXlBook = result.pdispVal;
 
     return 1;
 }
@@ -148,23 +189,63 @@ int CXl::SetVisible(bool bVisible) {
 int CXl::Open() 
 {
     if (Init() < 0)
-        return -1;
+        return -10;
     if (CheckError(CheckXlInit()))
-        return -1;
+        return -20;
     
-    if (SetVisible(true))
-        return -1;
-    
+    if (SetVisible(true) < 0)
+        return -30;
+
+    if (AddWorkBooks() < 0)
+        return -40;
+
+    VariantInit(&m_XlProp.pvaArray);
+    m_XlProp.pvaArray.vt = VT_ARRAY | VT_VARIANT;
+
     return 1;
 }
 
-int CXl:: AddWorkBook() {
+int CXl::SetSafeBound(const char* pcszStart, const char* pcszEnd) {
+
+    unsigned int unRowMin = ConvertXlNumber(pcszStart)[0];
+    unsigned int unRowMax = ConvertXlNumber(pcszEnd)[0];
+    unsigned int unColumnMin = ConvertXlNumber(pcszStart)[1];
+    unsigned int unColumnMax = ConvertXlNumber(pcszEnd)[1];
+    return SetSafeBound(unRowMin, unRowMax, unColumnMin, unColumnMax);
+}
+
+int CXl::SetSafeBound(unsigned int unRowMin, unsigned int unRowMax, unsigned int unColumnMin, unsigned int unColumnMax) {
+    SAFEARRAYBOUND sab[2];
+    printf("unRowMin: %d\n", unRowMin);
+    printf("unRowMax: %d\n", unRowMax);
+    printf("unColumnMin: %d\n", unColumnMin);
+    printf("unColumnMax: %d\n", unColumnMax);
+
+    sab[0].lLbound = unRowMin; sab[0].cElements = unRowMax;
+    sab[1].lLbound = unColumnMin; sab[1].cElements = unColumnMax;
+
+    if ((m_XlProp.pvaArray.parray = SafeArrayCreate(VT_VARIANT, 2, sab)) == NULL) {
+        MessageBoxA(NULL, "SafeArrayCreat()의 값을 반환하지 못했습니다.", "오류", 0x10010);
+        return -1;
+    }
+
+    return 1;
+}
+
+int CXl::SetRange(const char* pcszStart, const char* pcszEnd) {    
+    _bstr_t str = FormatOutput("%s:%s", pcszStart, pcszEnd);
+    VARIANT range;
+    range.vt = VT_BSTR;
+    range.bstrVal = ::SysAllocString(str);
+
     VARIANT result;
     VariantInit(&result);
-    if(CheckError(AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlBooks, "Add", 0)))
-        return -1;
+    if (CheckError(AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlSheet, "Range", 1, range)))
+        return -3;
+    
+    VariantClear(&range);
 
-    m_XlProp.pXlBook = result.pdispVal;
+    m_XlProp.pXlRange = result.pdispVal;
 
     return 1;
 }
@@ -174,75 +255,55 @@ int CXl::AddActiveSheet() {
     VariantInit(&result);
     if (CheckError(AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlApp, "ActiveSheet", 0)))
         return -1;
-    
+
     m_XlProp.pXlSheet = result.pdispVal;
 
     return 1;
 }
 
-int CXl::SetRange(const char* pcszStart, const char* pcszEnd) {
-    IDispatch* pXlRange;
-    {
-        _bstr_t str = FormatOutput("%s:%s", pcszStart, pcszEnd);
-        VARIANT range;
-        range.vt = VT_BSTR;
-        range.bstrVal = ::SysAllocString(str);
+int CXl::SetData(const char* pcszData, long lRow, long lColumn) {
+    _bstr_t bstrData = pcszData;
+    VARIANT vaData;
+    vaData.vt = VT_BSTR;
+    vaData.bstrVal = ::SysAllocString(bstrData);
 
-        VARIANT result;
-        VariantInit(&result);
-        if (CheckError(AutoWrap(DISPATCH_PROPERTYGET, &result, m_XlProp.pXlSheet, "Range", 1, range)))
-            return -1;
+    long indices[] = {lRow, lColumn};
 
-        VariantClear(&range);
-
-        pXlRange = result.pdispVal;
-    }
-
-    pXlRange->Release();
+    if (CheckError(SafeArrayPutElement(m_XlProp.pvaArray.parray, indices, (void*)&vaData)))
+        return -1;
 
     return 1;
 }
 
-int CXl::SetSafeBound(VARIANT& va, unsigned int unYMin, unsigned int unYMax, unsigned int unXMin, unsigned int unXMax) {
-    va.vt = VT_ARRAY | VT_VARIANT;
-    SAFEARRAYBOUND sab[2];
-    sab[0].lLbound = unYMin; sab[0].cElements = unYMax;
-    sab[1].lLbound = unXMin; sab[1].cElements = unXMax;
-    
-    if ((va.parray = SafeArrayCreate(VT_VARIANT, 2, sab)) == NULL) {
-        MessageBoxA(NULL, "SafeArrayCreat()의 값을 반환하지 못했습니다.", "오류", 0x10010);
+int CXl::Print() {
+    if (CheckError(AutoWrap(DISPATCH_PROPERTYPUT, NULL, m_XlProp.pXlRange, "Value", 1, m_XlProp.pvaArray)))
         return -1;
-    }
 
     return 1;
 }
 
-int CXl::SetData(VARIANT vaArray, VARIANT vaData, unsigned int unRow, unsigned int unColumn) {
-    long indices[] = { unRow, unColumn };
-    if (CheckError(SafeArrayPutElement(vaArray.parray, indices, (void*)&vaData)))
+int CXl::Save() {
+    if(CheckError(AutoWrap(DISPATCH_METHOD, NULL, m_XlProp.pXlApp, "Save", 0)))
         return -1;
-    
-    if (CheckError(AutoWrap(DISPATCH_PROPERTYPUT, NULL, m_XlProp.pXlSheet, "Value", 1, vaArray)))
-        return -1;
-}
 
-int CXl::Print(VARIANT arr) {
-    
-    
     return 1;
 }
 
-void CXl::Save() {
-    AutoWrap(DISPATCH_METHOD, NULL, m_XlProp.pXlApp, "Save", 0);
-}
-
-void CXl::Close() {
+int CXl::Close() {
+    if(CheckError(AutoWrap(DISPATCH_METHOD, NULL, m_XlProp.pXlApp, "Quit", 0)))
+        return -1;
     
-    AutoWrap(DISPATCH_METHOD, NULL, m_XlProp.pXlApp, "Quit", 0);
+    m_XlProp.pXlRange->Release();
     m_XlProp.pXlSheet->Release();
     m_XlProp.pXlBook->Release();
     m_XlProp.pXlBooks->Release();
     m_XlProp.pXlApp->Release();
+    VariantClear(&m_XlProp.pvaArray);
+    
+    Sleep(3000);
+
     CoUninitialize();
     MessageBoxA(NULL, "성공적으로 작업이 종료되었습니다", "알림", MB_OK | MB_ICONINFORMATION);
+
+    return 0;
 }
